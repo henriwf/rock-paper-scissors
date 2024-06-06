@@ -84,7 +84,7 @@ function playGame (){
             }
         
             if (humanChoice == "scissors" && computerChoice == "scissors") {
-                console.log("It’s a tie! Both chose rock.")
+                console.log("It’s a tie! Both chose scissors.")
             }
             
             console.log(`Human Score: ${humanScore}`);
