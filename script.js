@@ -9,14 +9,13 @@ function getComputerChoice() {
         return "rock";
     }
 
-    if (computerChoice > 0.333 && computerChoice < 0.666) {
+    else if (computerChoice < 0.666) {
         return "paper";
     }
 
-    if (computerChoice > 0.666) {
+    else {
         return "scissors";
     }
-    console.log(computerChoice)
 }
 
 
@@ -41,8 +40,8 @@ function playGame (){
     
             
         
-            if (humanChoice == "rock" && computerChoice == "rock") {
-                console.log("It’s a tie! Both chose rock.")
+            if (humanChoice ==  computerChoice) {
+                console.log("It’s a tie! Both chose " + humanChoice)
             }
         
             if (humanChoice == "rock" && computerChoice == "paper") {
@@ -62,9 +61,7 @@ function playGame (){
                 humanScore++;
             }
         
-            if (humanChoice == "paper" && computerChoice == "paper") {
-                console.log("It’s a tie! Both chose paper.")
-            }
+            
         
             if (humanChoice == "paper" && computerChoice == "scissors") {
                 console.log("You lose! Scissors beat paper.")
@@ -83,9 +80,7 @@ function playGame (){
                 humanScore++;
             }
         
-            if (humanChoice == "scissors" && computerChoice == "scissors") {
-                console.log("It’s a tie! Both chose scissors.")
-            }
+            
             
             console.log(`Human Score: ${humanScore}`);
             console.log(`Computer Score: ${computerScore}`);
