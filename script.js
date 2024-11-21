@@ -30,7 +30,7 @@ function getHumanChoice() {
 
 
 
-function playGame (){
+function playGame(){
 
     let humanScore = 0;
     let computerScore = 0;
@@ -104,4 +104,7 @@ function playGame (){
 
 console.log(playGame());
 
+const buttonR = document.querySelector("#rock");
+const buttonP = document.querySelector("#paper");
+const buttonS = document.querySelector("#scissors");
 
