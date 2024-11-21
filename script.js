@@ -1,6 +1,6 @@
 console.log("Hello World")
  
-
+let humanChoice = "";
 function getComputerChoice() {
 
     let computerChoice = Math.random();
@@ -19,24 +19,33 @@ function getComputerChoice() {
 }
 
 
-function getHumanChoice() {
-    let humanChoice = window.prompt("Rock, paper or scissors?")
-    return humanChoice.toLowerCase(); 
-
-}
 
 
 
 
 
 
-function playGame(){
+
+function playGame(event){
 
     let humanScore = 0;
     let computerScore = 0;
+    
 
-    for (let round = 1; round <= 5; round++) {
+
+   
         function playRound (humanChoice, computerChoice) {
+            
+            const clickedButton = event.target;
+            
+
+            if (clickedButton.id === "rock") {
+                humanChoice = "rock";
+            } else if (clickedButton.id === "paper"){
+                humanChoice = "paper";
+            } else if (clickedButton.id === "scissors"){
+                humanChoice = "scissors";
+            }
     
             
         
@@ -87,11 +96,11 @@ function playGame(){
         
         }
 
-        const humanSelection = getHumanChoice();
+        const humanSelection = humanChoice;
         const computerSelection = getComputerChoice();
 
         playRound(humanSelection, computerSelection);
-    }
+    
 
     if (humanScore > computerScore) {
         return "Congratulations! You win :)";
@@ -102,9 +111,11 @@ function playGame(){
     }
 }
 
-console.log(playGame());
 
-const buttonR = document.querySelector("#rock");
-const buttonP = document.querySelector("#paper");
-const buttonS = document.querySelector("#scissors");
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", playGame)
+})
 
