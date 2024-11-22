@@ -4,6 +4,7 @@ let humanChoice = "";
 let humanScore = 0;
 let computerScore = 0;
 const result = document.querySelector("#results");
+const scores = document.querySelector("#scores");
 
 
 
@@ -54,16 +55,20 @@ function playGame(event){
         
             if (humanChoice ==  computerChoice) {
                 result.textContent = `It's a tie! Both chose ${humanChoice}`;
+                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
+
             }
         
             if (humanChoice == "rock" && computerChoice == "paper") {
                 result.textContent = "You lose! Paper beats rock.";
                 computerScore++;
+                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
             }
         
             if (humanChoice == "rock" && computerChoice == "scissors") {
                 result.textContent = "You win! Rock beats scissors.";
                 humanScore++;
+                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
             }
         
         
@@ -71,6 +76,7 @@ function playGame(event){
             if (humanChoice == "paper" && computerChoice == "rock") {
                 result.textContent = "You win! Paper beats rock.";
                 humanScore++;
+                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
             }
         
             
@@ -78,6 +84,7 @@ function playGame(event){
             if (humanChoice == "paper" && computerChoice == "scissors") {
                 result.textContent = "You lose! Scissors beat paper.";
                 computerScore++;
+                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
             }
         
         
@@ -85,21 +92,21 @@ function playGame(event){
             if (humanChoice == "scissors" && computerChoice == "rock") {
                 result.textContent = "You lose! Rock beats scissors.";
                 computerScore++;
+                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
             }
         
             if (humanChoice == "scissors" && computerChoice == "paper") {
                 result.textContent = "You win! Scissors beat paper.";
                 humanScore++;
+                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
             }
         
             if (humanScore === 5) {
-                console.log("Game over! You win :)")
+                result.textContent = "Game over! You win :)";
             } else if (computerScore === 5) {
-                console.log("Game over! You lose :(")
+                result.textContent = "Game over! You lose :(";
             }
             
-            console.log(`Human Score: ${humanScore}`);
-            console.log(`Computer Score: ${computerScore}`);
         
         }
 
