@@ -75,7 +75,7 @@ function playGame(event){
                 result.textContent = "Game over! You lose :(";
             }
 
-            if ((humanScore > 5) || (computerScore > 6)) {
+            if ((humanScore > 5) || (computerScore > 5)) {
                 scores.textContent = "Refresh to play again";
                 result.textContent = "";
             }
