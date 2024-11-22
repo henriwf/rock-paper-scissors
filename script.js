@@ -4,7 +4,11 @@ let humanChoice = "";
 let humanScore = 0;
 let computerScore = 0;
 const result = document.querySelector("#results");
-const scores = document.querySelector("#scores");
+const humanScoreUpdate = document.querySelector("#humanScoreUpdate");
+const computerScoreUpdate = document.querySelector("#computerScoreUpdate");
+result.textContent = "Press a button to start the game";
+humanScoreUpdate.textContent = "0";
+computerScoreUpdate.textContent = "0";
 
 
 function getComputerChoice() {
@@ -48,7 +52,8 @@ function playGame(event){
         
             if (humanChoice ==  computerChoice) {
                 result.textContent = `It's a tie! Both chose ${humanChoice}`;
-                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
+                humanScoreUpdate.textContent = humanScore
+                computerScoreUpdate.textContent = computerScore
 
             } else if ((humanChoice == "scissors" && computerChoice == "paper") || 
             (humanChoice == "rock" && computerChoice == "scissors") ||
@@ -56,16 +61,18 @@ function playGame(event){
 
                 result.textContent = `You win! ${humanChoice} beats ${computerChoice}. `
                 humanScore++;
-                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
+                humanScoreUpdate.textContent = humanScore
+                computerScoreUpdate.textContent = computerScore
 
 
             } else if ((humanChoice == "paper" && computerChoice == "scissors") || 
             (humanChoice == "scissors" && computerChoice == "rock") || 
             (humanChoice == "rock" && computerChoice == "paper")){
 
-                result.textContent = `You lose! ${computerChoice} beats ${humanChoice} . `
+                result.textContent = `You lose! ${computerChoice} beats ${humanChoice}. `
                 computerScore++;
-                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
+                humanScoreUpdate.textContent = humanScore
+                computerScoreUpdate.textContent = computerScore
             }
                 
 
@@ -76,8 +83,10 @@ function playGame(event){
             }
 
             if ((humanScore > 5) || (computerScore > 5)) {
-                scores.textContent = "Refresh to play again";
-                result.textContent = "";
+                result.textContent = "Refresh to play again";
+                humanScoreUpdate.textContent = "";
+                computerScoreUpdate.textContent = "";
+                
             }
             
         
