@@ -22,14 +22,14 @@ function getComputerChoice() {
 
 
 
-
+let humanScore = 0;
+let computerScore = 0;
 
 
 
 function playGame(event){
 
-    let humanScore = 0;
-    let computerScore = 0;
+    
     
 
 
@@ -89,7 +89,11 @@ function playGame(event){
                 humanScore++;
             }
         
-            
+            if (humanScore === 5) {
+                console.log("Game over! You win :)")
+            } else if (computerScore === 5) {
+                console.log("Game over! You lose :(")
+            }
             
             console.log(`Human Score: ${humanScore}`);
             console.log(`Computer Score: ${computerScore}`);
