@@ -1,6 +1,12 @@
 console.log("Hello World")
  
 let humanChoice = "";
+let humanScore = 0;
+let computerScore = 0;
+const result = document.querySelector("#results");
+
+
+
 function getComputerChoice() {
 
     let computerChoice = Math.random();
@@ -21,9 +27,6 @@ function getComputerChoice() {
 
 
 
-
-let humanScore = 0;
-let computerScore = 0;
 
 
 
@@ -50,42 +53,42 @@ function playGame(event){
             
         
             if (humanChoice ==  computerChoice) {
-                console.log("It’s a tie! Both chose " + humanChoice)
+                result.textContent = `It's a tie! Both chose ${humanChoice}`;
             }
         
             if (humanChoice == "rock" && computerChoice == "paper") {
-                console.log("You lose! Paper beats rock.")
+                result.textContent = "You lose! Paper beats rock.";
                 computerScore++;
             }
         
             if (humanChoice == "rock" && computerChoice == "scissors") {
-                console.log("You win! Rock beats scissors.")
+                result.textContent = "You win! Rock beats scissors.";
                 humanScore++;
             }
         
         
         
             if (humanChoice == "paper" && computerChoice == "rock") {
-                console.log("You win! Paper beats rock.")
+                result.textContent = "You win! Paper beats rock.";
                 humanScore++;
             }
         
             
         
             if (humanChoice == "paper" && computerChoice == "scissors") {
-                console.log("You lose! Scissors beat paper.")
+                result.textContent = "You lose! Scissors beat paper.";
                 computerScore++;
             }
         
         
         
             if (humanChoice == "scissors" && computerChoice == "rock") {
-                console.log("You lose! Rock beats scissors.")
+                result.textContent = "You lose! Rock beats scissors.";
                 computerScore++;
             }
         
             if (humanChoice == "scissors" && computerChoice == "paper") {
-                console.log("You win! Scissors beat paper.")
+                result.textContent = "You win! Scissors beat paper.";
                 humanScore++;
             }
         
