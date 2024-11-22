@@ -7,7 +7,6 @@ const result = document.querySelector("#results");
 const scores = document.querySelector("#scores");
 
 
-
 function getComputerChoice() {
 
     let computerChoice = Math.random();
@@ -28,13 +27,7 @@ function getComputerChoice() {
 
 
 
-
-
-
 function playGame(event){
-
-    
-    
 
 
    
@@ -57,54 +50,34 @@ function playGame(event){
                 result.textContent = `It's a tie! Both chose ${humanChoice}`;
                 scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
 
-            }
-        
-            if (humanChoice == "rock" && computerChoice == "paper") {
-                result.textContent = "You lose! Paper beats rock.";
+            } else if ((humanChoice == "scissors" && computerChoice == "paper") || 
+            (humanChoice == "rock" && computerChoice == "scissors") ||
+            (humanChoice == "paper" && computerChoice == "rock")) {
+
+                result.textContent = `You win! ${humanChoice} beats ${computerChoice}. `
+                humanScore++;
+                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
+
+
+            } else if ((humanChoice == "paper" && computerChoice == "scissors") || 
+            (humanChoice == "scissors" && computerChoice == "rock") || 
+            (humanChoice == "rock" && computerChoice == "paper")){
+
+                result.textContent = `You lose! ${computerChoice} beats ${humanChoice} . `
                 computerScore++;
                 scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
             }
-        
-            if (humanChoice == "rock" && computerChoice == "scissors") {
-                result.textContent = "You win! Rock beats scissors.";
-                humanScore++;
-                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
-            }
-        
-        
-        
-            if (humanChoice == "paper" && computerChoice == "rock") {
-                result.textContent = "You win! Paper beats rock.";
-                humanScore++;
-                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
-            }
-        
-            
-        
-            if (humanChoice == "paper" && computerChoice == "scissors") {
-                result.textContent = "You lose! Scissors beat paper.";
-                computerScore++;
-                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
-            }
-        
-        
-        
-            if (humanChoice == "scissors" && computerChoice == "rock") {
-                result.textContent = "You lose! Rock beats scissors.";
-                computerScore++;
-                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
-            }
-        
-            if (humanChoice == "scissors" && computerChoice == "paper") {
-                result.textContent = "You win! Scissors beat paper.";
-                humanScore++;
-                scores.textContent = `Human Score: ${humanScore} Computer Score: ${computerScore}`
-            }
-        
+                
+
             if (humanScore === 5) {
                 result.textContent = "Game over! You win :)";
             } else if (computerScore === 5) {
                 result.textContent = "Game over! You lose :(";
+            }
+
+            if ((humanScore > 5) || (computerScore > 6)) {
+                scores.textContent = "Refresh to play again";
+                result.textContent = "";
             }
             
         
